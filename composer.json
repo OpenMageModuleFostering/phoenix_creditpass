@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Phoenix_Creditpass",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL)",
+    "homepage": "",
+    "description": "Bonitätsprüfung über deutsche Auskunfteidienste / Risk Management",
+    "authors": [
+    {
+        "name": "Phoenix Medien",
+        "email": "info@phoenix-medien.de"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
