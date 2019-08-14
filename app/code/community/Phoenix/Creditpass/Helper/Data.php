@@ -22,8 +22,9 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 	public function checkPayment()
 	{
 		// if module is disabled
-		if (!$this->moduleActive())
+		if (!$this->moduleActive()) {
 			return true;
+		}
 
 		$payment_array = $this->getPaymentArray();
 		$session = Mage::getSingleton('core/session');
@@ -36,7 +37,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 		$session->setCreditPassTimestamp(sprintf('%s', Mage::helper('core')->formatDate(null, 'medium', true)));
 		$session->setCreditPassQuoteId($quote->getId());
 
-		if(!$guest && $this->getConfigFlag('exclude_groups_enable') && $this->_excludeCustomerGroup($quote->getCustomer()->getGroupId())) {
+		if (!$guest && $this->getConfigFlag('exclude_groups_enable') && $this->_excludeCustomerGroup($quote->getCustomer()->getGroupId())) {
 			$session->setCreditPassAnswerCode(sprintf('%s', 0));
 			$session->setCreditPassAnswerText(sprintf('%s', $this->__('Customer has not been checked because he is member of a trusted group.')));
 			$session->setCreditPassResult('PASSED');
@@ -45,20 +46,20 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 
 		Mage::log('creditPass: Checking for '.$payment->getMethod());
 
-		if ($address->getCountryId() == 'DE' && array_key_exists($payment->getMethod(), $payment_array)) {
+		if (array_key_exists($payment->getMethod(), $payment_array)) {
 			// only check rating once
-			if ($session->getCreditPassResult() == 'FAILED')			
+			if ($session->getCreditPassResult() == 'FAILED') {
 				return false;
+			}
 
 			if ($this->getConfigFlag('live_mode')) {
 				$ta_type = '27920';
 				$p_mode = '1';
-			}
-			else {
+			} else {
 				$ta_type = '27920';
 				$p_mode = '8';
 			}
-			
+
 			$helper = Mage::helper('core/string');
 
 			$requesttxt = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<REQUEST></REQUEST>";
@@ -102,7 +103,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 					$queryobj->addChild('KONTONR', $payment->getCcNumber());
 					break;
 			}
-			
+
 				// add purchase type with appended group type
 			$gm = ($guest) ? '1' : '2';
 			$queryobj->addChild('PURCHASE_TYPE', $payment_array[$payment->getMethod()] . $gm);
@@ -112,8 +113,9 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 
 				// process response
 			$responseobj = @simplexml_load_string($response);
-			if ($responseobj === FALSE)
+			if ($responseobj === FALSE) {
 				Mage::throwException($this->__('creditPass API failure. Response parsing error.'));
+			}
 
 			$answer_code = $responseobj->PROCESS->ANSWER_CODE;
 			Mage::log('creditPass answer code: '.$answer_code);
@@ -137,7 +139,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 
 	/**
 	 * Return the config value for the passed key (current store)
-	 * 
+	 *
 	 * @param string $key
 	 * @return string
 	 */
@@ -146,7 +148,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 		$path = 'creditpass/settings/' . $key;
 		return Mage::getStoreConfig($path);
 	}
-	
+
     public function getConfigFlag($field)
     {
         $path = 'creditpass/settings/' . $field;
@@ -155,7 +157,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 
 	/**
 	 * Check if the extension has been disabled in the system configuration
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function moduleActive()
@@ -170,15 +172,16 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 	 */
 	public function filterActive()
 	{
-		if (Mage::getSingleton('core/session')->getCreditPassResult() == 'FAILED')
+		if (Mage::getSingleton('core/session')->getCreditPassResult() == 'FAILED') {
 			return true;
+		}
 
 		return false;
 	}
 
 	/**
 	 * Return the allowed payment method codes
-	 * 
+	 *
 	 *
 	 * @return array()
 	 */
@@ -209,7 +212,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 			if (strpos($key, 'purchase_type_') !== false) {
 				if (!empty($arr['payment_method']) && !empty($arr['purchase_type_code'])) {
 					$purchaseTypes[$arr['payment_method']] = $arr['purchase_type_code'];
-				} 
+				}
 			}
 		}
 		return $purchaseTypes;
@@ -249,7 +252,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 
 	/**
 	 * Return the if group id is in the list of exclude groups
-	 * 
+	 *
 	 * @return bool
 	 */
 	private function _excludeCustomerGroup($group)
@@ -260,7 +263,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 
 	/**
 	 * Return error -1 XML
-	 * 
+	 *
 	 * @return string
 	 */
 	private function _returnErrorXml($error)

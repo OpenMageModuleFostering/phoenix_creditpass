@@ -1,19 +1,23 @@
 <?xml version="1.0"?>
 <package>
     <name>Phoenix_Creditpass</name>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <stability>stable</stability>
     <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
     <channel>community</channel>
     <extends/>
     <summary>Bonit&#xE4;tspr&#xFC;fung &#xFC;ber deutsche Auskunfteidienste / Risk Management</summary>
     <description>creditPass&#xAE; bietet in Deutschland den umfangreichsten Zugriff auf renommierte Auskunfteidienste f&#xFC;r die Bonit&#xE4;tspr&#xFC;fung. Auf nur einer Plattform stehen Ausk&#xFC;nfte aller renommierten Anbieter zur Verf&#xFC;gung. Dieses beinhaltet u.a. folgende Auskunftsarten: Personenauskunft, Firmenauskunft, Kontenauskunft, Adressauskunft, Kartencheck bis hin zur Adressermittlung oder ComplianceCheck. Die Bonit&#xE4;tsabfragen erfolgen &#xFC;ber eine internetbasierte Plattform mit Sofortantwort und k&#xF6;nnen dabei einzeln ausgew&#xE4;hlt oder kombiniert werden. Grundlage sind Datenbest&#xE4;nde renommierter
-Auskunfteien wie bspw. SCHUFA, B&#xFC;rgel, infoscore, CEG Creditreform, accumio, D</description>
-    <notes>Fixed issue with ZIP</notes>
+Auskunfteien wie bspw. SCHUFA, B&#xFC;rgel, infoscore, CEG Creditreform, accumio, D&amp;B, Deutsche Post uvm. Die Daten stammen dabei u.a. aus dem Versandhandel und Einzelhandel, Versicherungen, Immobilien, Inkasso und der
+Telekommunikation.
+
+Dieses Modul wurde von &lt;a href="http://www.phoenix-medien.de" target="_blank"&gt;Phoenix Medien&lt;/a&gt;, &lt;a href="http://www.phoenix-medien.de/magento.html" target="_blank"&gt;Magento Gold Partner&lt;/a&gt; in Deutschland und &#xD6;sterreich entwickelt.</description>
+    <notes>- Added compatibility for Unirgy Gift Certificates module
+- Added support for countries outside Germany</notes>
     <authors><author><name>Phoenix Medien</name><user>auto-converted</user><email>info@phoenix-medien.de</email></author></authors>
-    <date>2009-10-22</date>
-    <time>13:22:46</time>
-    <contents><target name="magelocale"><dir name="de_DE"><file name="Phoenix_Creditpass.csv" hash="1277c69eb663a2d070989debcf76c456"/></dir><dir name="en_US"><file name="Phoenix_Creditpass.csv" hash="e9b8ecf70f0c7d9dd540b456c06ba1bc"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="creditpass.xml" hash="c42f52c729ef057ffaaf72362136917d"/></dir><dir name="template"><dir name="creditpass"><file name="processing.phtml" hash="b2fad762db3d375e32b3d4bffa5cbc86"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Phoenix_Creditpass.xml" hash="075e618b58ec33a571e69d2beb4117c4"/></dir></target><target name="magecommunity"><dir name="Phoenix"><dir name="Creditpass"><dir name="controllers"><file name="CheckpaymentController.php" hash="274ded0f5bc473d1075b79466993db29"/></dir><dir name="etc"><file name="config.xml" hash="cb48e8f1fd0c4bfa0668262fe995d9bc"/><file name="system.xml" hash="c1e0f7be1537d2f06e7411815a009746"/></dir><dir name="Helper"><file name="Data.php" hash="058bf3fcd266638bac720725d7f40861"/><file name="Payment.php" hash="2e65cc1833f27b5d03b529791cb632cd"/></dir><dir name="Model"><dir name="Source"><dir name="Payment"><file name="Methods.php" hash="9bec505be838fe11bc5c3ac53ce419af"/></dir><file name="Customergroups.php" hash="9e6e5088ae21dfd2be8553337f1b84f6"/><file name="LiveMode.php" hash="07f42a6d03dcce8672168a865de07e1c"/></dir><file name="SaveOrderObserver.php" hash="e14989af44c5ef8c38d88c0817801ade"/></dir></dir></dir></target></contents>
+    <date>2010-04-06</date>
+    <time>13:29:32</time>
+    <contents><target name="magelocale"><dir name="de_DE"><file name="Phoenix_Creditpass.csv" hash="1277c69eb663a2d070989debcf76c456"/></dir><dir name="en_US"><file name="Phoenix_Creditpass.csv" hash="e9b8ecf70f0c7d9dd540b456c06ba1bc"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="creditpass.xml" hash="c42f52c729ef057ffaaf72362136917d"/></dir><dir name="template"><dir name="creditpass"><file name="processing.phtml" hash="b2fad762db3d375e32b3d4bffa5cbc86"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Phoenix_Creditpass.xml" hash="075e618b58ec33a571e69d2beb4117c4"/></dir></target><target name="magecommunity"><dir name="Phoenix"><dir name="Creditpass"><dir name="Block"><dir name="Multishipping"><file name="Billing.php" hash="7b59120011a2c62182516848c378a60a"/></dir><dir name="Payment"><file name="Methods.php" hash="3c7a56f13d1d58ce49111ef3f199548a"/></dir></dir><dir name="controllers"><file name="CheckpaymentController.php" hash="274ded0f5bc473d1075b79466993db29"/></dir><dir name="etc"><file name="config.xml" hash="4b862ae392a672fab7232d61866cc37a"/><file name="system.xml" hash="c1e0f7be1537d2f06e7411815a009746"/></dir><dir name="Helper"><file name="Data.php" hash="de41424c93821037902234a427e366bd"/></dir><dir name="Model"><dir name="Source"><dir name="Payment"><file name="Methods.php" hash="9bec505be838fe11bc5c3ac53ce419af"/></dir><file name="Customergroups.php" hash="9e6e5088ae21dfd2be8553337f1b84f6"/></dir><file name="SaveOrderObserver.php" hash="e14989af44c5ef8c38d88c0817801ade"/></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies/>
 </package>

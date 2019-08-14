@@ -21,7 +21,7 @@
 <config>
 	<modules>
 		<Phoenix_Creditpass>
-			<version>1.0.2</version>
+			<version>1.0.3</version>
 		</Phoenix_Creditpass>
 	</modules>
 	<global>
@@ -54,11 +54,6 @@
 			<creditpass>
 				<class>Phoenix_Creditpass_Helper</class>
 			</creditpass>
-			<payment>
-				<rewrite>
-					<data>Phoenix_Creditpass_Helper_Payment</data>
-				</rewrite>
-			</payment>
 		</helpers>
 		<resources>
 			<creditpass_setup>
@@ -82,6 +77,17 @@
 		</resources>
 	</global>
 	<frontend>
+        <blocks>
+            <creditpass>
+                <class>Phoenix_Creditpass_Block</class>
+            </creditpass>
+            <checkout>
+                <rewrite>
+                    <onepage_payment_methods>Phoenix_Creditpass_Block_Payment_Methods</onepage_payment_methods>
+                    <multishipping_billing>Phoenix_Creditpass_Block_Multishipping_Billing</multishipping_billing>
+                </rewrite>
+            </checkout>
+        </blocks>
 		<routers>
 			<creditpass>
 				<use>standard</use>
