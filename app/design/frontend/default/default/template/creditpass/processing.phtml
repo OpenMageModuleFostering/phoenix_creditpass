@@ -21,7 +21,7 @@
 payment.onSave = function(paymentTransport){
 	checkout.setLoadWaiting('payment');
 	new Ajax.Request(
-		'<?php echo Mage::getUrl('creditpass/checkpayment/process'); ?>',
+		'<?php echo Mage::getUrl('creditpass/checkpayment/process', array('_secure'=>true)); ?>',
 		{
 			method:		'get',
 			onComplete:	function(transport) {
