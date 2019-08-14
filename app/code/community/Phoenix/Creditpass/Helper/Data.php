@@ -75,7 +75,7 @@ class Phoenix_Creditpass_Helper_Data extends Mage_Core_Helper_Abstract
 			$queryobj->addChild('FIRST_NAME', $helper->htmlEscape($helper->substr($address->getFirstname(), 0, 64)));
 			$queryobj->addChild('LAST_NAME', $helper->htmlEscape($helper->substr($address->getLastname(), 0, 64)));
 			$queryobj->addChild('ADDR_STREET_FULL', $helper->htmlEscape($helper->substr(implode(' ', $address->getStreet()), 0, 50)));
-			$queryobj->addChild('ADDR_ZIP', $helper->substr($address->getPostcode(), 0, 8));
+			$queryobj->addChild('ADDR_ZIP', $helper->substr($address->getPostcode(), 0, 5));
 			$queryobj->addChild('ADDR_CITY', $helper->htmlEscape($helper->substr($address->getCity(), 0, 32)));
 			$queryobj->addChild('ADDR_COUNTRY', $address->getCountryId());
 			$queryobj->addChild('CUSTOMERIP', ($quote->getRemoteIp() ? $quote->getRemoteIp() : '127.0.0.1'));
