@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Phoenix_Creditpass",
+    "name": "openmage-module-fostering\/phoenix_creditpass",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Bonit\u00e4tspr\u00fcfung \u00fcber deutsche Auskunfteidienste \/ Risk Management",
     "authors": [
